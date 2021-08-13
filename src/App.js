@@ -1,6 +1,22 @@
+import { makeStyles } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core/";
 
 function App() {
-  return <h1>Paquete</h1>;
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+    </div>
+  );
 }
 
 export default App;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "100vh",
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
+}));
