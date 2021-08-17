@@ -11,7 +11,7 @@ function Header() {
     setChecked(true);
   }, []);
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="header">
       <AppBar className={classes.appBar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
@@ -24,8 +24,7 @@ function Header() {
       </AppBar>
       <Collapse
         in={checked}
-        {...(checked ? { timeout: 1000 } : {})}
-        collapaseSize={50}
+        collapasesize={50}
       >
         <div className={classes.container}>
           <h1 className={classes.title}>

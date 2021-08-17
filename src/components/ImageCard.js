@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import { Collapse } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,28 +29,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ImageCard({ places }) {
+export default function ImageCard({ places, checked }) {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={places.imageUrl}
-        title="Contemplative Reptile"
-      />
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="h1"
-          className={classes.title}
-        >
-          {places.title}
-        </Typography>
-        <Typography variant="body2" className={classes.description}>
-          {places.description}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          image={places.imageUrl}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h1"
+            className={classes.title}
+          >
+            {places.title}
+          </Typography>
+          <Typography variant="body2" className={classes.description}>
+            {places.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Collapse>
   );
 }

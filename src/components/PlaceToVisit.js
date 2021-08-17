@@ -1,13 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
 import ImageCard from "./ImageCard";
-import  places from "../static/places";
+import places from "../static/places";
+import useWindowsPosition from "../hook/useWindowsPosition";
 
 function PlaceToVisit() {
   const classes = useStyles();
+  const checked = useWindowsPosition("header");
   return (
     <div className={classes.root}>
-        <ImageCard places={places[1]} />
-        <ImageCard places={places[0]} />
+      <ImageCard places={places[1]} checked={checked} />
+      <ImageCard places={places[0]} checked={checked} />
     </div>
   );
 }
@@ -19,6 +21,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 }));
