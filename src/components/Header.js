@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, IconButton, Toolbar, Collapse } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Link as Scroll } from "react-scroll";
 
 function Header() {
   const classes = useStyles();
@@ -22,18 +23,17 @@ function Header() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Collapse
-        in={checked}
-        collapasesize={50}
-      >
+      <Collapse in={checked} collapasesize={50}>
         <div className={classes.container}>
           <h1 className={classes.title}>
             Welcome to <br /> My{" "}
             <span className={classes.colorText}>Island.</span>
           </h1>
-          <IconButton>
-            <ExpandMoreIcon className={classes.goDown} />
-          </IconButton>
+          <Scroll to="place-to-visit" smooth={true}>
+            <IconButton>
+              <ExpandMoreIcon className={classes.goDown} />
+            </IconButton>
+          </Scroll>
         </div>
       </Collapse>
     </div>
